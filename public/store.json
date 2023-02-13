@@ -2,16 +2,19 @@
     {
         "id": "11",
         "product": "SONDER: WHITE LP EDITION",
+        "description": "DERMOT KENNEDY'S 2ND STUDIO ALBUM WILL BE RELEASED BY ISLAND RECORDS ON FRIDAY 18TH NOVEMBER. THE BRAND-NEW ALBUM 'SONDER' INCLUDES TRACKS 'SOMETHING TO SOMEONE', 'BETTER DAYS' AND 'DREAMER'.",
         "price": "229"
     },
     {
         "id": "12",
         "product": "GREY WICKLOW ZIP HOODIE",
+        "description": "Grey Zip Hoodie with Wicklow designs on the sleeves. Front Pouch Pockets, Unisex Fit. Machine wash cold. Do not tumble dry. Do Not Iron embellishment.",
         "price": "399"
     },
     {
         "id": "13",
         "product": "SONDER: ZINE CD EDITION",
+        "description": "Limited 32-page perfect bound book CD Edition. Printed on 140gsm paper includes exclusive imagery & photos, lyrics and handwritten notes.",
         "price": "129"
     }
 ]

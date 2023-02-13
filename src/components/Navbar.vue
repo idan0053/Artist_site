@@ -16,19 +16,20 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Start</a>
+            <routerLink class="nav-link active" aria-current="page" to="/">Start</routerLink>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Tour</a>
+            <routerLink class="nav-link" to="/tour">Tour</routerLink>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Store</a>
+            <routerLink class="nav-link" to="/store">Store</routerLink>
           </li>
         </ul>
       </div>
     </div>
   </div>
 </nav>
+<RouterView />
 </template>
 <style scoped>
 
