@@ -6,4 +6,6 @@
     <Navbar />
 </template>
 
-<style scoped></style>
+<style>
+
+</style>
