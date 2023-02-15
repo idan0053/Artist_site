@@ -8,5 +8,9 @@
   <StoreCard />
 </template>
 
-<style>
+<style scoped>
+h1 {
+  margin: 1rem 0 0 2rem;
+  font-size: 6vw;
+}
 </style>

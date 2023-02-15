@@ -1,12 +1,13 @@
 <script setup>
 import NewsletterForm from '../components/NewsletterForm.vue'
+import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <script>
 export default {
     data() {
       return {
-        showForm: false
+        showForm: false,
       }
     }
   }
@@ -22,23 +23,29 @@ export default {
             <li>
                 <a @click="showForm = true">SIGN UP FOR NEWSLETTER</a>
             </li>
+            <li id="tour-link">
+                <RouterLink to="/tour">TOUR</RouterLink>
+            </li>
+            <li id="store-link">
+                <RouterLink to="/store">STORE</RouterLink>
+            </li>
         </ul>
         <div id="news-form"  v-if="showForm">
             <NewsletterForm />
         </div>
         <div id="shadow" v-if="showForm"></div>
     </body>
+    <RouterView />
 </template>
 
 <style scoped>
-
 body {
     position: relative;
 }
 
 h1 {
     font-size: 8vw;
-    margin-top: 12vh;
+    margin-top: 8vh;
     margin-left: 3vw;
 }
 
@@ -52,14 +59,14 @@ h2 {
     font-size: 4vw;
     float: right;
     text-align: right;
-    margin-top: 15vw;
+    margin-top: 16vw;
     margin-right: 3vw;
 }
 
 #line {
     height: 1.2vh;
     background-color: #231d22;
-    margin-top: 9vh;
+    margin-top: 8vh;
 }
 
 ul {
@@ -67,12 +74,27 @@ ul {
     display: flex;
 }
 
-li {
-    margin-left: 3vw;
+a:hover {
+    color: blueviolet;
 }
 
 a {
     cursor: pointer;
+    margin-left: .3rem;
+    text-decoration: none;
+    color: #231d22;
+}
+
+li:hover {
+    color: blueviolet;
+}
+
+#tour-link {
+    margin-left: 4vw;
+}
+
+#store-link {
+    margin-left: 4vw;
 }
 
 #news-form {
@@ -92,5 +114,4 @@ a {
     background-color: #231d2280;
     z-index: 1;
 }
-
 </style>

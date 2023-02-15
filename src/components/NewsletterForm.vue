@@ -1,9 +1,16 @@
 <script>
 export default {
+    created (){
+        fetch('http://localhost:3000/users')
+            .then(response => response.json())
+            .then(result => this.users = result)
+    },
     data(){
         return{
+            users: '',
             name: '',
-            email: ''
+            email: '',
+            showForm: true
         }
     },
     methods: {
@@ -11,22 +18,13 @@ export default {
             window.location.reload();
         },
         save() {
-            fetch('/news_users.json',{
-            body: JSON.stringify({name: this.name, email: this.email}),
+            fetch('http://localhost:3000/users',{
+            body: JSON.stringify({id: this.users.length+1, name: this.name, email: this.email}),
             headers: {'Content-Type': 'application/json'},
             method: 'POST'
             })
             .then(response => response.json())
             .then(data => console.log(data))
-            /*axios.post('/news_user.json', {
-            jsonData: JSON.stringify({name: this.name, email: this.email})
-            })
-            .then(function (response) {
-            console.log(response);
-            })
-            .catch(function (error) {
-            console.log(error);
-            });*/
         }
   }
 }
@@ -34,20 +32,24 @@ export default {
 
 <template>
         <div class="container">
-            <div id="news-header">
-                <h2>NEWSLETTER</h2>
+            <div class="news-header">
+                <h2 v-if="showForm === true">NEWSLETTER</h2>
+                <h2 v-if="showForm === false">THANK YOU</h2>
                 <img id="x" @click="close()" src="../assets/x.png" alt="x">
             </div>
-            <p id="info-text">Want the latest news? <br>
-            Sign up to be one of the first to know the latest news on Dermot.</p>
-            <div id="form-container">
+            <p class="info-text" v-if="showForm === true">Want the latest news? <br>
+            Sign up to be the first to know the latest news on Dermot.</p>
+            <h3 v-if="showForm === false">for subscribing {{ name }}</h3>
+            <p class="info-text" v-if="showForm === false">We will now provide you with the latest news <br> on Dermot Kennedy. If you wish to unsubscribe <br> there is a link in the bottom of every email.</p>
+            <div id="form-container" v-if="showForm === true">
                 <p>Name</p>
                 <input v-model="name" type="text">
                 <p>Email adress</p>
                 <input v-model="email" type="text">
-                <button @click="save()">Sign up!</button>
+                <button @click="save(), showForm = false">Sign up!</button>
             </div>
         </div>
+
 </template>
 
 <style scoped>
@@ -56,16 +58,23 @@ export default {
     background-color: #ffffff;
     width: auto;
     height: auto;
+    padding-bottom: 2rem;
     position: relative;
 }
 
-#news-header {
+.news-header {
     display: flex;
+    text-align: center;
 }
 
 h2 {
     font-size: 2.5rem;
     margin: 3rem 0 0 3rem;
+}
+
+h3 {
+    font-size: 1.9rem;
+    margin: 0 0 1rem 3rem;
 }
 
 #x {
@@ -76,7 +85,7 @@ h2 {
     cursor: pointer;
 }
 
-#info-text {
+.info-text {
     font-size: .8rem;
     margin-left: 3rem;
     margin-right: 3rem;
@@ -98,6 +107,10 @@ h2 {
 #form-container button {
     margin: 3vh 0 3rem;
 }
-
-
+#news-form {
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    z-index: 2;
+}
 </style>

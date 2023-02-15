@@ -18,9 +18,9 @@
 <template>
     <div id="container">
         <div class="product-card" v-for="item in items">
-            <img id="product" v-if="item.product === 'SONDER: WHITE LP EDITION'" src="../assets/LP.png" alt="Picture of LP">
-            <img id="product" v-else-if="item.product === 'GREY WICKLOW ZIP HOODIE'" src="../assets/Hoodie.png" alt="Picture of Hoodie">
-            <img id="product" v-else-if="item.product === 'SONDER: ZINE CD EDITION'" src="../assets/CD.png" alt="Picture of CD bundle">
+            <img class="product" v-if="item.product === 'SONDER: WHITE LP EDITION'" src="../assets/LP.png" alt="Picture of LP">
+            <img class="product" v-else-if="item.product === 'GREY WICKLOW ZIP HOODIE'" src="../assets/Hoodie.png" alt="Picture of Hoodie">
+            <img class="product" v-else-if="item.product === 'SONDER: ZINE CD EDITION'" src="../assets/CD.png" alt="Picture of CD bundle">
 
             <h5> {{ item.product }} </h5>
             <p class="description"> {{ item.description }}</p>
@@ -35,6 +35,8 @@
 #container {
  display: flex;
  justify-content: center;
+ margin-top: 0;
+ padding: 0;
 }
 .product-card {
     width: 30vw;
@@ -42,10 +44,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 0;
+    padding: 0;
 }
 
-#product {
-    width: 30vw;
+.product {
+  width: 32vw;
 }
 
 .description {
