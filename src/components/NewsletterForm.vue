@@ -11,9 +11,23 @@ export default {
             window.location.reload();
         },
         save() {
-        console.log(this.name)
-        console.log(this.email)
-    }
+            fetch('/news_users.json',{
+            body: JSON.stringify({name: this.name, email: this.email}),
+            headers: {'Content-Type': 'application/json'},
+            method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            /*axios.post('/news_user.json', {
+            jsonData: JSON.stringify({name: this.name, email: this.email})
+            })
+            .then(function (response) {
+            console.log(response);
+            })
+            .catch(function (error) {
+            console.log(error);
+            });*/
+        }
   }
 }
 </script>
