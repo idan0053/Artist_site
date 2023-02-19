@@ -1,5 +1,6 @@
 <script setup>
 import NewsletterForm from '../components/NewsletterForm.vue'
+import MadeBy from '../components/MadeBy.vue'
 import { RouterLink, RouterView } from 'vue-router'
 </script>
 
@@ -28,6 +29,9 @@ export default {
             </li>
             <li id="store-link">
                 <RouterLink to="/store">STORE</RouterLink>
+            </li>
+            <li id="made-by">
+                <MadeBy name="Ida Andersson"/>
             </li>
         </ul>
         <div id="news-form"  v-if="showForm">
@@ -87,6 +91,14 @@ a {
 
 li:hover {
     color: blueviolet;
+}
+
+#made-by {
+    margin-left: 40%;
+}
+
+#made-by:hover {
+    color: #231d22;
 }
 
 #tour-link {
